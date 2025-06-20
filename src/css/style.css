@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+nav {
+    display: flex;
+    background-color: black;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    list-style-type: none;
+    font-size: 25px;
+    color: white;
+    align-items: center;
+}
+
+nav img{
+    width: 60px;
+}
+nav i{
+    width: 60px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.pesquisa{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    justify-content: center;
+}
+
+.pesquisa p{
+    width: 100%;
+    text-align: center;
+}
+
+.filtros form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+.filtros input {
+    height: 20px;
+    border: 1px solid grey;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 5px;
+
+}
+.filtros form button{
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    width: 45%;
+}
+
+#suitname{
+    width: 93%;
+}
+
+#suitnumber{
+    width: 30%;
+}
+#suitvalue{
+    width: 30%;
+}
+#suitdate{
+    width: 27%;
+}
+
+
+#suitsize{
+    width: 45%;
+    display: none;
+}
+
+#suitcatering{
+    width: 45%;
+    display: none;
+}
+
+#suitvaluecatering{
+    width: 45%;
+    display: none;
+}
+#suitparcela{
+    width: 45%;
+    display: none;
+}
+
+
+.itens {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 100%;
+    justify-content: center;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 15px;
+    padding: 20px;
+    height: auto;
+    width: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(10, 20, 24, 0.50) 0px 2px 4px 0px, rgba(14, 30, 37, 0.50) 0px 2px 16px 0px;
+}
+
+.item h3{
+    margin: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+
+.item img{
+    width: 300px;
+    height: auto;
+    margin: 10px;
+}
+
+.tabela, th, td{
+    border-collapse: collapse; /*define a separação entre as bordar*/
+    padding: 8px;
+    text-align: center;
+    border: 1px solid rgb(160 160 160);
+}
+th{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
