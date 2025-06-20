@@ -1,5 +1,6 @@
 const contratos = [
   {
+    id: 510,
     numero: 510,
     nome: "FLEX AUTOMOTIVE",
     inicio: "01/03/2025",
@@ -14,6 +15,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 511,
     numero: 511,
     nome: "DI MILANO",
     inicio: "01/01/2025",
@@ -28,6 +30,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 512,
     numero: 512,
     nome: "VICE PRESIDENCIA - OSMAR",
     inicio: "N/A",
@@ -42,6 +45,7 @@ const contratos = [
     status: "USO INTERNO"
   },
   {
+    id: 513,
     numero: 513,
     nome: "BETBR (EX B1.BET)",
     inicio: "01/01/2025",
@@ -56,6 +60,7 @@ const contratos = [
     status: "NEGADO PELA COMPLIANCE"
   },
   {
+    id: 514,
     numero: 514,
     nome: "GUERINO E LIMA",
     inicio: "01/01/2025",
@@ -70,6 +75,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 515,
     numero: 515,
     nome: "PORTE ENGENHARIA",
     inicio: "28/06/2024",
@@ -84,6 +90,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 516,
     numero: 516,
     nome: "ELRING KLINGER",
     inicio: "01/01/2025",
@@ -98,6 +105,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 517,
     numero: 517,
     nome: "VOCE SEGURADORA",
     inicio: "05/10/2024",
@@ -112,6 +120,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 518,
     numero: 518,
     nome: "TORTORO, MADUREIRA E RAGAZZI",
     inicio: "01/09/2024",
@@ -126,6 +135,7 @@ const contratos = [
     status: "ASSINADO"
   },
   {
+    id: 519,
     numero: 519,
     nome: "KALUNGA",
     inicio: "01/04/2015",
@@ -140,3 +150,48 @@ const contratos = [
     status: "RENOVACAO"
   }
 ];
+
+function mostraTodos(){
+  for (i = 0; i < contratos.length; i++) {
+    document.getElementById(contratos[i].id).style.display = 'flex';
+  }
+}
+
+let filtroClick = document.getElementById('btnsend');
+
+filtroClick.addEventListener('click', function (event) {
+
+  event.preventDefault();
+  numeroinput = document.getElementById('suitnumber').value;
+  numeroinput = Number(numeroinput)
+  precoinput = document.getElementById('suitvalue').value;
+  precoinput = Number(precoinput)
+
+  // Exibe todos os itens
+  for (i = 0; i < contratos.length; i++) {
+    mostraTodos();
+  }
+
+  // Apaga os itens pelo numero
+  if (!isNaN(numeroinput) && numeroinput != 0) {
+
+    for (i = 0; i < contratos.length; i++) {
+      if (contratos[i].numero != numeroinput) {
+        document.getElementById(contratos[i].id).style.display = 'none';
+      }
+    }
+  }
+  else {
+    mostraTodos();
+  }
+
+  alert(precoinput)
+
+  if (!isNaN(precoinput) && precoinput != 0) {
+    for (i = 0; i < contratos.length; i++) {
+      if (contratos[i].precoTotal != precoinput) {
+        document.getElementById(contratos[i].id).style.display = 'none';
+      }
+    }
+  }
+});
