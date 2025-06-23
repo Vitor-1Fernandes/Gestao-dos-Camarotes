@@ -42,7 +42,7 @@ const contratos = [
     dataVencimento: "N/A",
     ingressos: 15,
     catering: "N/A",
-    status: "USO INTERNO"
+    status: "USO-INTERNO"
   },
   {
     id: 513,
@@ -57,7 +57,7 @@ const contratos = [
     dataVencimento: 10,
     ingressos: 15,
     catering: "BASICO",
-    status: "NEGADO PELA COMPLIANCE"
+    status: "NEGADO"
   },
   {
     id: 514,
@@ -193,6 +193,9 @@ filtroClick.addEventListener('click', function (event) {
   event.preventDefault();
   numeroInput = document.getElementById('suitnumber').value;
   numeroInput = Number(numeroInput)
+  suitcatering = document.getElementById('suitcatering').value
+  suitsize = document.getElementById('suitsize').value
+  suitstate = document.getElementById('suitstate').value
 
   // Exibe todos os itens
   mostraTodos();
@@ -208,6 +211,43 @@ filtroClick.addEventListener('click', function (event) {
       filtrar('numero', numeroInput);
     }
   }
-
-
+  if(suitsize != 0){
+    if (suitsize == 2){
+      filtrar('ingressos', 12)
+    }
+    if (suitsize == 3){
+      filtrar('ingressos', 15)
+    }
+     if (suitsize == 4){
+      filtrar('ingressos', 33)
+    }
+  }
+   if(suitcatering != 0){
+    if (suitcatering == 2){
+      filtrar('catering', 'BASICO')
+    }
+    if (suitcatering == 3){
+      filtrar('catering', 'BASICO-JOGO')
+    }
+     if (suitcatering == 4){
+      filtrar('catering', 'INTERMEDIARIO')
+    }
+    if (suitcatering == 5){
+      filtrar('catering', 'VIP')
+    }
+  }
+    if(suitstate != 0){
+    if (suitstate == 2){
+      filtrar('status', 'ASSINADO')
+    }
+    if (suitstate == 3){
+      filtrar('status', 'NEGADO')
+    }
+     if (suitstate == 4){
+      filtrar('status', 'RENOVACAO')
+    }
+    if (suitstate == 5){
+      filtrar('status', 'USO-INTERNO')
+    }
+  }
 });
