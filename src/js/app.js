@@ -169,10 +169,10 @@ function apagaTodos() {
 
 // Filtra de acordo com as propriedadas recebidas na função
 function filtrar(propriedade, infInput) {
-
+  apagaTodos();
   for (let i = 0; i < contratos.length; i++) {
-    if (contratos[i][propriedade] != infInput) {
-      document.getElementById(contratos[i].id).style.display = 'none';
+    if (contratos[i][propriedade] == infInput) {
+      document.getElementById(contratos[i].id).style.display = 'flex';
     }
   }
 
@@ -250,4 +250,23 @@ filtroClick.addEventListener('click', function (event) {
       filtrar('status', 'USO-INTERNO')
     }
   }
+});
+
+// document.getElementById(camarote.id).classList.add("appear");
+// document.getElementById(camarote.id).classList.add("disappear");
+
+let suitname = document.getElementById('suitname')
+
+suitname.addEventListener('input', function () {
+  const filtro = suitname.value.toLowerCase();
+
+  contratos.forEach(function (camarote) {
+    if(camarote.nome.toLowerCase().includes(filtro)) {
+      document.getElementById(camarote.id).style.display = 'flex';
+
+    }
+    else{
+      document.getElementById(camarote.id).style.display = 'none';
+    }
+  });
 });
