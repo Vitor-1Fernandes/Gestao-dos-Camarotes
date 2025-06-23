@@ -20,21 +20,45 @@
     <main>
         <aside class="filtros">
             <div class="pesquisa">
-                <form>
+                <form id="form">
                     <p> Pesquisar Camarotes</p>
-                    <input type="text" id="suitname" placeholder="Pesquisa por nome">
+                    <input type="text" id="suitname" placeholder="Nome do Cliente">
                     <input type="text" id="suitnumber" placeholder="Número do Camarote">
-                    <input type="text" id="suitvalue" placeholder="Preço">
-                    <input type="text" id="suitdate" placeholder="Data de Vencimento">
-                    <input type="text" id="suitsize" placeholder="Quantidade de Ingressos">
-                    <input type="text" id="suitparcela" placeholder="Valor da Parcela">
-                    <input type="text" id="suitcatering" placeholder="Catering">
-                    <input type="text" id="suitvaluecatering" placeholder="Valor do Catering">
-                    <button type="submit" id="btnsend">Filtrar</button><button id="btnreset" type="reset">Apagar
+                    <select id="suitsize">
+                        <option value="0" selected disabled>Ingressos</option>
+                        <option value="1">Todas</option>
+                        <option value="2">15</option>
+                        <option value="3">12</option>
+                        <option value="4">33</option>
+                    </select>
+
+                    <select id="suitcatering">
+                        <option value="0" selected disabled>Catering</option>
+                        <option value="1">Todos</option>
+                        <option value="2">Básico</option>
+                        <option value="3">Básico Jogo</option>
+                        <option value="4">Intermediário</option>
+                        <option value="5">VIP</option>
+                    </select>
+
+                    <select id="suitstate">
+                        <option value="0" selected disabled>Status</option>
+                        <option value="1">Todas</option>
+                        <option value="2">Assinado</option>
+                        <option value="3">Negado</option>
+                        <option value="4">Uso Interno</option>
+                    </select>
+
+                    <button type="submit" id="btnSend">Filtrar</button><button id="btnReset" type="reset">Apagar
                         Filtros</button>
                 </form>
             </div>
         </aside>
+
+        <button class="btnOrdem">
+        Data de Vencimento: da mais próxima para a mais longe
+        </button>
+
         <article class="itens">
 
             <div class="item" id="510">
@@ -108,7 +132,7 @@
             </div>
 
             <div class="item" id="512">
-                <img src="src/assets/512.jpg" alt="" >
+                <img src="src/assets/512.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -143,7 +167,7 @@
             </div>
 
             <div class="item" id="513">
-                <img src="src/assets/513.jpg" alt="" >
+                <img src="src/assets/513.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -178,7 +202,7 @@
             </div>
 
             <div class="item" id="514">
-                <img src="src/assets/514.jpg" alt="" >
+                <img src="src/assets/514.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -213,7 +237,7 @@
             </div>
 
             <div class="item" id="515">
-                <img src="src/assets/515.jpg" alt="" >
+                <img src="src/assets/515.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -248,7 +272,7 @@
             </div>
 
             <div class="item" id="516">
-                <img src="src/assets/516.jpg" alt="" >
+                <img src="src/assets/516.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -283,7 +307,7 @@
             </div>
 
             <div class="item" id="517">
-                <img src="src/assets/517.jpg" alt="" >
+                <img src="src/assets/517.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -318,7 +342,7 @@
             </div>
 
             <div class="item" id="518">
-                <img src="src/assets/518.jpg" alt="" >
+                <img src="src/assets/518.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -353,7 +377,7 @@
             </div>
 
             <div class="item" id="519">
-                <img src="src/assets/519.jpg" alt="" >
+                <img src="src/assets/519.jpg" alt="">
                 <div class="boxh3">
                     <table class="tabela">
                         <h3>Camarote do Presidente</h3>
@@ -386,7 +410,12 @@
                     </table>
                 </div>
             </div>
-
+            <div class="item" id="mensagem">
+                <h3>Não há nenhum registro de camarote com as especificações informadas</h3>
+            </div>
+            <div class="item" id="mensagemCamaroteInvalido">
+                <h3>O número do camarote informado é inválido, insira um valor entre 501 e 546 ou 601 e 646</h3>
+            </div>
         </article>
     </main>
     <script src="src/js/app.js"></script>
