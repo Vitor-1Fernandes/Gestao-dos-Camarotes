@@ -52,6 +52,7 @@ main {
     display: flex;
     flex-direction: column;
     margin: 25px;
+    width: 100%;
 }
 
 .filtros {
