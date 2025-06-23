@@ -12,7 +12,7 @@
 <body>
     <nav>
         <ul>
-            <li><i class="fa-solid fa-house"></i></li>
+            <li>home</li>
             <li>Gestão dos Camarotes</li>
             <li><img src="src/assets/Corinthians.png" alt="Logo do Corinthians"></li>
         </ul>
@@ -24,6 +24,7 @@
                     <p> Pesquisar Camarotes</p>
                     <input type="text" id="suitname" placeholder="Nome do Cliente">
                     <input type="text" id="suitnumber" placeholder="Número do Camarote">
+                    <div class="boxselect">
                     <select id="suitsize">
                         <option value="0" selected disabled>Ingressos</option>
                         <option value="0">Todas</option>
@@ -47,9 +48,9 @@
                         <option value="2">Assinado</option>
                         <option value="3">Negado</option>
                         <option value="4">Renovação</option>
-                        <option value="5">Uso Interno</option>
+                        <option value="5">Uso Interno</option>   
                     </select>
-
+                        </div>
                     <button type="submit" id="btnSend">Filtrar</button><button id="btnReset" type="reset">Apagar
                         Filtros</button>
                 </form>
@@ -57,13 +58,10 @@
         </aside>
 
         <article class="itens">
-
-
             <div class="bntBox">
                 <button class="btnOrdem">
                     Data de Vencimento: da mais próxima para a mais longe
                 </button>
-        
             </div>
                     <div class="item" id="510">
                         <img src="src/assets/510.jpg" alt="">
