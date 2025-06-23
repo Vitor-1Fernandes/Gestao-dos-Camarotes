@@ -22,7 +22,7 @@ const contratos = [
     termino: "31/12/2025",
     precoCamarote: 360000,
     precoCatering: 84000,
-    precoTotal: 444000,
+    precoTotal: 444.000,
     parcelaCamarote: 30000,
     dataVencimento: 10,
     ingressos: 12,
@@ -151,47 +151,63 @@ const contratos = [
   }
 ];
 
-function mostraTodos(){
+// Mostra todos os itens na tela e apaga as mensagens de erro
+function mostraTodos() {
   for (i = 0; i < contratos.length; i++) {
     document.getElementById(contratos[i].id).style.display = 'flex';
   }
+  document.getElementById('mensagemCamaroteInvalido').style.display = 'none';
+  document.getElementById('mensagem').style.display = 'none';
 }
 
-let filtroClick = document.getElementById('btnsend');
+// Apaga todos os itens na tela
+function apagaTodos() {
+  for (i = 0; i < contratos.length; i++) {
+    document.getElementById(contratos[i].id).style.display = 'none';
+  }
+}
+
+// Filtra de acordo com as propriedadas recebidas na função
+function filtrar(propriedade, infInput) {
+
+  for (let i = 0; i < contratos.length; i++) {
+    if (contratos[i][propriedade] != infInput) {
+      document.getElementById(contratos[i].id).style.display = 'none';
+    }
+  }
+
+}
+
+let apagarFiltro = document.getElementById('btnReset');
+let filtroClick = document.getElementById('btnSend');
+
+apagarFiltro.addEventListener('click', function (event) {
+  let form = document.getElementById('form');
+  event.preventDefault();
+  form.reset();
+  mostraTodos();
+})
 
 filtroClick.addEventListener('click', function (event) {
-
+  // Colhe informação dos input
   event.preventDefault();
-  numeroinput = document.getElementById('suitnumber').value;
-  numeroinput = Number(numeroinput)
-  precoinput = document.getElementById('suitvalue').value;
-  precoinput = Number(precoinput)
+  numeroInput = document.getElementById('suitnumber').value;
+  numeroInput = Number(numeroInput)
 
   // Exibe todos os itens
-  for (i = 0; i < contratos.length; i++) {
-    mostraTodos();
-  }
+  mostraTodos();
 
-  // Apaga os itens pelo numero
-  if (!isNaN(numeroinput) && numeroinput != 0) {
+  // Função para filtrar os itens
 
-    for (i = 0; i < contratos.length; i++) {
-      if (contratos[i].numero != numeroinput) {
-        document.getElementById(contratos[i].id).style.display = 'none';
-      }
+  if (numeroInput != 0) {
+    if (((numeroInput < 501) || (numeroInput > 646)) || (numeroInput > 546 && numeroInput < 601)) {
+      apagaTodos();
+      document.getElementById('mensagemCamaroteInvalido').style.display = 'flex';
+    }
+    else{
+      filtrar('numero', numeroInput);
     }
   }
-  else {
-    mostraTodos();
-  }
 
-  alert(precoinput)
 
-  if (!isNaN(precoinput) && precoinput != 0) {
-    for (i = 0; i < contratos.length; i++) {
-      if (contratos[i].precoTotal != precoinput) {
-        document.getElementById(contratos[i].id).style.display = 'none';
-      }
-    }
-  }
 });
