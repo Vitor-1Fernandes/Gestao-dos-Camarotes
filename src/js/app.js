@@ -1,3 +1,6 @@
+
+
+
 const contratos = [
   {
     id: 510,
@@ -170,27 +173,99 @@ function apagaTodos() {
 // Filtra de acordo com as propriedadas recebidas na função
 function filtrar(propriedade, infInput) {
   apagaTodos();
+  document.getElementById('suitname').value = "";
+  document.getElementById('suitnumber').value = "";
   for (let i = 0; i < contratos.length; i++) {
     if (contratos[i][propriedade] == infInput) {
       document.getElementById(contratos[i].id).style.display = 'flex';
     }
   }
+  contaHidden();
 
 }
 
-let apagarFiltro = document.getElementById('btnReset');
-let filtroClick = document.getElementById('btnSend');
+function filtrarCaracteres(input) {
 
+  item = document.getElementById('itens');
+  item.classList.remove('inputappear');
+  void item.offsetWidth;
+  item.classList.add('inputappear');
+
+  contratos.forEach(function (camarote) {
+
+    const nome = suitname.value.toLowerCase();
+    const numeroCam = String(suitnumber.value);
+
+    if (input == 'nome') {
+      document.getElementById('suitnumber').value = "";
+      document.getElementById('mensagemCamaroteInvalido').style.display = 'none';
+      if (camarote.nome.toLowerCase().includes(nome)) {
+        document.getElementById(camarote.id).style.display = 'flex';
+      }
+      else {
+        document.getElementById(camarote.id).style.display = 'none';
+      }
+    }
+    if (input == 'num') {
+      document.getElementById('suitname').value = "";
+      if (Number(numeroCam) != 0) {
+        document.getElementById('mensagemCamaroteInvalido').style.display = 'none';
+        if (((Number(numeroCam) < 501) || (Number(numeroCam) > 646)) || (Number(numeroCam) > 546 && Number(numeroCam) < 601)) {
+          apagaTodos();
+          document.getElementById('mensagemCamaroteInvalido').style.display = 'flex';
+        }
+        if (String(camarote.numero).startsWith(numeroCam)) {
+          document.getElementById(camarote.id).style.display = 'flex';
+        }
+        else {
+          document.getElementById(camarote.id).style.display = 'none';
+        }
+      }
+    }
+  });
+  contaHidden();
+}
+
+function contaHidden() {
+  let total = 0
+  for (i = 0; i < contratos.length; i++) {
+    if (document.getElementById(contratos[i].id).style.display == 'none') {
+      total = total + 1
+    }
+  }
+  if (total == contratos.length &&  document.getElementById('mensagemCamaroteInvalido').style.display == 'none') {
+    document.getElementById("mensagem").style.display = "flex"
+  }
+  else { document.getElementById("mensagem").style.display = "none" }
+}
+
+let apagarFiltro = document.getElementById('btnReset');
 apagarFiltro.addEventListener('click', function (event) {
-  let form = document.getElementById('form');
+
   event.preventDefault();
+  item = document.getElementById('itens');
+
+  item.classList.remove('animationappear');
+  void item.offsetWidth;
+  item.classList.add('animationappear');
+
+  let form = document.getElementById('form');
   form.reset();
   mostraTodos();
+
 })
 
+let filtroClick = document.getElementById('btnSend');
 filtroClick.addEventListener('click', function (event) {
-  // Colhe informação dos input
+
   event.preventDefault();
+
+  item = document.getElementById('itens');
+  item.classList.remove('animationappear');
+  void item.offsetWidth;
+  item.classList.add('animationappear');
+
+  // Colhe informação dos input
   numeroInput = document.getElementById('suitnumber').value;
   numeroInput = Number(numeroInput)
   suitcatering = document.getElementById('suitcatering').value
@@ -207,66 +282,85 @@ filtroClick.addEventListener('click', function (event) {
       apagaTodos();
       document.getElementById('mensagemCamaroteInvalido').style.display = 'flex';
     }
-    else{
+    else {
       filtrar('numero', numeroInput);
     }
   }
-  if(suitsize != 0){
-    if (suitsize == 2){
+  if (suitsize != 0) {
+    if (suitsize == 2) {
       filtrar('ingressos', 12)
     }
-    if (suitsize == 3){
+    if (suitsize == 3) {
       filtrar('ingressos', 15)
     }
-     if (suitsize == 4){
+    if (suitsize == 4) {
       filtrar('ingressos', 33)
     }
   }
-   if(suitcatering != 0){
-    if (suitcatering == 2){
+  if (suitcatering != 0) {
+    if (suitcatering == 2) {
       filtrar('catering', 'BASICO')
     }
-    if (suitcatering == 3){
+    if (suitcatering == 3) {
       filtrar('catering', 'BASICO-JOGO')
     }
-     if (suitcatering == 4){
+    if (suitcatering == 4) {
       filtrar('catering', 'INTERMEDIARIO')
     }
-    if (suitcatering == 5){
+    if (suitcatering == 5) {
       filtrar('catering', 'VIP')
     }
   }
-    if(suitstate != 0){
-    if (suitstate == 2){
+  if (suitstate != 0) {
+    if (suitstate == 2) {
       filtrar('status', 'ASSINADO')
     }
-    if (suitstate == 3){
+    if (suitstate == 3) {
       filtrar('status', 'NEGADO')
     }
-     if (suitstate == 4){
+    if (suitstate == 4) {
       filtrar('status', 'RENOVACAO')
     }
-    if (suitstate == 5){
+    if (suitstate == 5) {
       filtrar('status', 'USO-INTERNO')
     }
   }
+  contaHidden();
 });
 
-// document.getElementById(camarote.id).classList.add("appear");
-// document.getElementById(camarote.id).classList.add("disappear");
 
 let suitname = document.getElementById('suitname')
-
 suitname.addEventListener('input', function () {
-  const filtro = suitname.value.toLowerCase();
+  filtrarCaracteres('nome')
+});
 
-  contratos.forEach(function (camarote) {
-    if(camarote.nome.toLowerCase().includes(filtro)) {
-      document.getElementById(camarote.id).style.display = 'flex';
+let suitnumber = document.getElementById('suitnumber')
+suitnumber.addEventListener('input', function () {
+  filtrarCaracteres('num')
+});
 
-    }
-    else{
-      document.getElementById(camarote.id).style.display = 'none';
-    }
-  });
+
+const inverte = { valor: true }
+let btnOrdem = document.getElementById('btnOrdem')
+btnOrdem.addEventListener('click', function (event) {
+  event.preventDefault();
+  item = document.getElementById('itens');
+
+  item.classList.remove('animationappear');
+  void item.offsetWidth;
+  item.classList.add('animationappear');
+
+  if (inverte.valor == true) {
+    item.style.flexDirection = "column-reverse";
+
+    document.getElementById('btnOrdem').innerHTML = "Término do Contrato: do mais longe para o mais próximo";
+    inverte.valor = false;
+  }
+
+  else {
+    item.style.flexDirection = "column";
+
+    document.getElementById('btnOrdem').innerHTML = "Término do Contrato: do mais próximo para o mais longe";
+    inverte.valor = true;
+  }
 });
