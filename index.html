@@ -12,7 +12,7 @@
 <body>
     <nav>
         <ul>
-            <li><i class="fa-solid fa-house"></i></li>
+            <li>home</li>
             <li>Gestão dos Camarotes</li>
             <li><img src="src/assets/Corinthians.png" alt="Logo do Corinthians"></li>
         </ul>
@@ -24,6 +24,7 @@
                     <p> Pesquisar Camarotes</p>
                     <input type="text" id="suitname" placeholder="Nome do Cliente">
                     <input type="text" id="suitnumber" placeholder="Número do Camarote">
+                    <div class="boxselect">
                     <select id="suitsize">
                         <option value="0" selected disabled>Ingressos</option>
                         <option value="0">Todas</option>
@@ -47,9 +48,9 @@
                         <option value="2">Assinado</option>
                         <option value="3">Negado</option>
                         <option value="4">Renovação</option>
-                        <option value="5">Uso Interno</option>
+                        <option value="5">Uso Interno</option>   
                     </select>
-
+                        </div>
                     <button type="submit" id="btnSend">Filtrar</button><button id="btnReset" type="reset">Apagar
                         Filtros</button>
                 </form>
@@ -57,17 +58,14 @@
         </aside>
 
         <article class="itens">
-
-
             <div class="bntBox">
                 <button class="btnOrdem">
                     Data de Vencimento: da mais próxima para a mais longe
                 </button>
-        
             </div>
                     <div class="item" id="510">
                         <img src="src/assets/510.jpg" alt="">
-
+                        <div class="boxh3">
                         <table class="tabela">
 
                             <h3>Camarote do Presidente</h3>
@@ -78,11 +76,7 @@
                                 <th>Valor do Camarote</th>
                                 <th>Valor do Catering</th>
                                 <th>Valor Total</th>
-                                <th>Parcela</th>
-                                <th>Vencimento</th>
-                                <th>Ingressos</th>
-                                <th>Catering</th>
-                                <th>Status</th>
+                             
                             </tr>
                             <tr>
                                 <td>510</td>
@@ -91,16 +85,27 @@
                                 <td>R$ 360.000,00</td>
                                 <td>R$ 80.000,00</td>
                                 <td>R$ 440.000,00</td>
+                               
+
+                            </tr>
+                            </table>
+                            <table class="tabela">
+                            <tr>
+                                <th>Parcela</th>
+                                <th>Vencimento</th>
+                                <th>Ingressos</th>
+                                <th>Catering</th>
+                                <th>Status</th>     
+                            </tr>
+                            <tr>
                                 <td>R$ 36.000,00</td>
                                 <td>Dia 10</td>
                                 <td>15 Ingressos</td>
                                 <td>Básico</td>
                                 <td>Assinado</td>
-
                             </tr>
-
-                        </table>
-
+                            </table>
+                        </div>
                     </div>
 
                     <div class="item" id="511">
