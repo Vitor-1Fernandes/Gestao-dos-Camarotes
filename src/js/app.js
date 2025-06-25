@@ -172,8 +172,11 @@ function apagaTodos() {
 
 // Filtra de acordo com as propriedadas recebidas na função
 function filtrar(propriedade, infInput) {
-  document.getElementById('suitname').value = "";
-  document.getElementById('suitname').value = "";
+  item.classList.remove('inputappear');
+  item.classList.remove('animationappear');
+  void item.offsetWidth;
+  item.classList.add('animationappear');
+
   for (let i = 0; i < contratos.length; i++) {
     if (contratos[i][propriedade] != infInput) {
       document.getElementById(contratos[i].id).style.display = 'none';
@@ -185,10 +188,14 @@ function filtrar(propriedade, infInput) {
 
 function filtrarCaracteres(input) {
 
-  item = document.getElementById('itens');
+  document.getElementById('suitsize').value = 0;
+  document.getElementById('suitcatering').value = 0;
+  document.getElementById('suitstate').value = 0;
+
   item.classList.remove('inputappear');
+  item.classList.remove('animationappear');
   void item.offsetWidth;
-  item.classList.add('inputappear');
+  item.classList.add('animationappear');
 
   contratos.forEach(function (camarote) {
 
@@ -208,11 +215,6 @@ function filtrarCaracteres(input) {
     if (input == 'num') {
       document.getElementById('suitname').value = "";
       if (Number(numeroCam) != 0) {
-        document.getElementById('mensagemCamaroteInvalido').style.display = 'none';
-        if (((Number(numeroCam) < 501) || (Number(numeroCam) > 646)) || (Number(numeroCam) > 546 && Number(numeroCam) < 601)) {
-          apagaTodos();
-          document.getElementById('mensagemCamaroteInvalido').style.display = 'flex';
-        }
         if (String(camarote.numero).startsWith(numeroCam)) {
           document.getElementById(camarote.id).style.display = 'flex';
         }
@@ -244,6 +246,7 @@ apagarFiltro.addEventListener('click', function (event) {
   event.preventDefault();
   item = document.getElementById('itens');
 
+  item.classList.remove('inputappear');
   item.classList.remove('animationappear');
   void item.offsetWidth;
   item.classList.add('animationappear');
@@ -259,7 +262,11 @@ filtroClick.addEventListener('click', function (event) {
 
   event.preventDefault();
 
+  document.getElementById('suitname').value = "";
+  document.getElementById('suitnumber').value = "";
+
   item = document.getElementById('itens');
+  item.classList.remove('inputappear');
   item.classList.remove('animationappear');
   void item.offsetWidth;
   item.classList.add('animationappear');
@@ -335,6 +342,7 @@ btnOrdem.addEventListener('click', function (event) {
   event.preventDefault();
   item = document.getElementById('itens');
 
+  item.classList.remove('inputappear');
   item.classList.remove('animationappear');
   void item.offsetWidth;
   item.classList.add('animationappear');
