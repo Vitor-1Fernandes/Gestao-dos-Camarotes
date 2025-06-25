@@ -50,7 +50,7 @@ const contratos = [
   {
     id: 513,
     numero: 513,
-    nome: "BETBR (EX B1.BET)",
+    nome: "USO INTERNO",
     inicio: "01/01/2025",
     termino: "31/12/2025",
     precoCamarote: 432000,
@@ -110,7 +110,7 @@ const contratos = [
   {
     id: 517,
     numero: 517,
-    nome: "VOCE SEGURADORA",
+    nome: "VOCÊ SEGURADORA",
     inicio: "05/10/2024",
     termino: "31/12/2025",
     precoCamarote: 615000,
@@ -172,6 +172,9 @@ function apagaTodos() {
 
 // Filtra de acordo com as propriedadas recebidas na função
 function filtrar(propriedade, infInput) {
+
+  item = document.getElementById('itens');
+  
   item.classList.remove('inputappear');
   item.classList.remove('animationappear');
   void item.offsetWidth;
@@ -192,6 +195,7 @@ function filtrarCaracteres(input) {
   document.getElementById('suitcatering').value = 0;
   document.getElementById('suitstate').value = 0;
 
+  item = document.getElementById('itens');
   item.classList.remove('inputappear');
   item.classList.remove('animationappear');
   void item.offsetWidth;
@@ -234,7 +238,7 @@ function contaHidden() {
       total = total + 1
     }
   }
-  if (total == contratos.length &&  document.getElementById('mensagemCamaroteInvalido').style.display == 'none') {
+  if (total == contratos.length) {
     document.getElementById("mensagem").style.display = "flex"
   }
   else { document.getElementById("mensagem").style.display = "none" }
