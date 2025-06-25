@@ -172,12 +172,11 @@ function apagaTodos() {
 
 // Filtra de acordo com as propriedadas recebidas na função
 function filtrar(propriedade, infInput) {
-  apagaTodos();
   document.getElementById('suitname').value = "";
-  document.getElementById('suitnumber').value = "";
+  document.getElementById('suitname').value = "";
   for (let i = 0; i < contratos.length; i++) {
-    if (contratos[i][propriedade] == infInput) {
-      document.getElementById(contratos[i].id).style.display = 'flex';
+    if (contratos[i][propriedade] != infInput) {
+      document.getElementById(contratos[i].id).style.display = 'none';
     }
   }
   contaHidden();
@@ -276,16 +275,6 @@ filtroClick.addEventListener('click', function (event) {
   mostraTodos();
 
   // Função para filtrar os itens
-
-  if (numeroInput != 0) {
-    if (((numeroInput < 501) || (numeroInput > 646)) || (numeroInput > 546 && numeroInput < 601)) {
-      apagaTodos();
-      document.getElementById('mensagemCamaroteInvalido').style.display = 'flex';
-    }
-    else {
-      filtrar('numero', numeroInput);
-    }
-  }
   if (suitsize != 0) {
     if (suitsize == 2) {
       filtrar('ingressos', 12)
