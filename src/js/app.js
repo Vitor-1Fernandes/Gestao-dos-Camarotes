@@ -1,10 +1,7 @@
-
-
-
 const contratos = [
   {
     id: 510,
-    numero: 510,
+    numero: "510",
     nome: "FLEX AUTOMOTIVE",
     inicio: "01/03/2025",
     termino: "31/12/2025",
@@ -19,7 +16,7 @@ const contratos = [
   },
   {
     id: 511,
-    numero: 511,
+    numero: "511",
     nome: "DI MILANO",
     inicio: "01/01/2025",
     termino: "31/12/2025",
@@ -34,7 +31,7 @@ const contratos = [
   },
   {
     id: 512,
-    numero: 512,
+    numero: "512",
     nome: "VICE PRESIDENCIA - OSMAR",
     inicio: "N/A",
     termino: "N/A",
@@ -49,7 +46,7 @@ const contratos = [
   },
   {
     id: 513,
-    numero: 513,
+    numero: "513",
     nome: "USO INTERNO",
     inicio: "01/01/2025",
     termino: "31/12/2025",
@@ -64,7 +61,7 @@ const contratos = [
   },
   {
     id: 514,
-    numero: 514,
+    numero: "514",
     nome: "GUERINO E LIMA",
     inicio: "01/01/2025",
     termino: "31/12/2025",
@@ -78,8 +75,8 @@ const contratos = [
     status: "ASSINADO"
   },
   {
-    id: 515,
-    numero: 515,
+    id: "515",
+    numero: "515",
     nome: "PORTE ENGENHARIA",
     inicio: "28/06/2024",
     termino: "31/12/2025",
@@ -109,7 +106,7 @@ const contratos = [
   },
   {
     id: 517,
-    numero: 517,
+    numero: "517",
     nome: "VOCÊ SEGURADORA",
     inicio: "05/10/2024",
     termino: "31/12/2025",
@@ -124,7 +121,7 @@ const contratos = [
   },
   {
     id: 518,
-    numero: 518,
+    numero: "518",
     nome: "TORTORO, MADUREIRA E RAGAZZI",
     inicio: "01/09/2024",
     termino: "31/08/2025",
@@ -139,7 +136,7 @@ const contratos = [
   },
   {
     id: 519,
-    numero: 519,
+    numero: "519",
     nome: "KALUNGA",
     inicio: "01/04/2015",
     termino: "01/04/2025",
@@ -150,16 +147,71 @@ const contratos = [
     dataVencimento: "N/A",
     ingressos: 15,
     catering: "VIP",
-    status: "RENOVACAO"
+    status: "RENOVACAO",
+    posicao: "Escanteio"
   }
 ];
+
+const itemcontainer = document.getElementById("itens");
+
+function renderSuits(list) {
+  list.forEach(camarote => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.id = `${camarote.id}`;
+    div.innerHTML = `
+      <img src='${camarote.src}'> </img>
+       <div class="boxh3">
+                    <table class="tabela">
+                        <h3>${camarote.nome}</h3>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Início</th>
+                            <th>Término</th>
+                            <th>Valor do Camarote</th>
+                            <th>Valor do Catering</th>
+                            <th>Valor Total</th>
+                        </tr>
+                        <tr>
+                            <td>${camarote.numero}</td>
+                            <td>${camarote.inicio}</td>
+                            <td>${camarote.termino}</td>
+                            <td>${camarote.precoCamarote}</td>
+                            <td>${camarote.precoCatering}</td>
+                            <td>${camarote.precoTotal}</td>
+                        </tr>
+                    </table>
+                    <table class="tabela">
+                        <tr>
+                            <th>Parcela</th>
+                            <th>Vencimento</th>
+                            <th>Ingressos</th>
+                            <th>Catering</th>
+                            <th>Status</th>
+                            <th>Posição</th>
+                        </tr>
+                        <tr>
+                            <td>${camarote.parcelaCamarote}</td>
+                            <td>${camarote.dataVencimento}</td>
+                            <td>${camarote.ingressos} Ingressos</td>
+                            <td>${camarote.catering}</td>
+                            <td>${camarote.status}</td>
+                            <td>{camarote.posicao}</td>
+
+                        </tr>
+                    </table>
+                </div>
+    `;
+    itemcontainer.appendChild(div);
+  });
+}
+renderSuits(contratos);
 
 // Mostra todos os itens na tela e apaga as mensagens de erro
 function mostraTodos() {
   for (i = 0; i < contratos.length; i++) {
     document.getElementById(contratos[i].id).style.display = 'flex';
   }
-  document.getElementById('mensagemCamaroteInvalido').style.display = 'none';
   document.getElementById('mensagem').style.display = 'none';
 }
 
@@ -208,7 +260,6 @@ function filtrarCaracteres(input) {
 
     if (input == 'nome') {
       document.getElementById('suitnumber').value = "";
-      document.getElementById('mensagemCamaroteInvalido').style.display = 'none';
       if (camarote.nome.toLowerCase().includes(nome)) {
         document.getElementById(camarote.id).style.display = 'flex';
       }
@@ -239,9 +290,9 @@ function contaHidden() {
     }
   }
   if (total == contratos.length) {
-    document.getElementById("mensagem").style.display = "flex"
+    document.getElementById("mensagem").style.display = "flex";
   }
-  else { document.getElementById("mensagem").style.display = "none" }
+  else { document.getElementById("mensagem").style.display = "none"; }
 }
 
 let apagarFiltro = document.getElementById('btnReset');
