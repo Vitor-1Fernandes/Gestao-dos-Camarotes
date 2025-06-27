@@ -171,6 +171,7 @@ function renderSuits(list) {
                             <th>Valor do Camarote</th>
                             <th>Valor do Catering</th>
                             <th>Valor Total</th>
+                            <th>Parcela</th>
                         </tr>
                         <tr>
                             <td>${camarote.numero}</td>
@@ -179,11 +180,11 @@ function renderSuits(list) {
                             <td>${camarote.precoCamarote}</td>
                             <td>${camarote.precoCatering}</td>
                             <td>${camarote.precoTotal}</td>
+                            <td>${camarote.parcelaCamarote}</td>
                         </tr>
                     </table>
                     <table class="tabela">
                         <tr>
-                            <th>Parcela</th>
                             <th>Vencimento</th>
                             <th>Ingressos</th>
                             <th>Catering</th>
@@ -191,7 +192,6 @@ function renderSuits(list) {
                             <th>Posição</th>
                         </tr>
                         <tr>
-                            <td>${camarote.parcelaCamarote}</td>
                             <td>${camarote.dataVencimento}</td>
                             <td>${camarote.ingressos} Ingressos</td>
                             <td>${camarote.catering}</td>
@@ -332,6 +332,7 @@ filtroClick.addEventListener('click', function (event) {
   suitcatering = document.getElementById('suitcatering').value
   suitsize = document.getElementById('suitsize').value
   suitstate = document.getElementById('suitstate').value
+  suitposition = document.getElementById('suitposition').value
 
   // Exibe todos os itens
   mostraTodos();
@@ -374,6 +375,11 @@ filtroClick.addEventListener('click', function (event) {
     }
     if (suitstate == 5) {
       filtrar('status', 'USO-INTERNO')
+    }
+  }
+  if (suitposition != 0){
+    if (suitposition == 2){
+      filtrar('posicao', 'Escanteio')
     }
   }
   contaHidden();
