@@ -1,159 +1,418 @@
+
+//Array onde cada objeto representa um camarote
 const contratos = [
   {
-    id: 510,
-    numero: "510",
-    nome: "FLEX AUTOMOTIVE",
+    id: "502",
+    numero2: "",
+    nome: "Disponível",
+    inicio: "-",
+    termino: "-",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "-",
+    catering: "-",
+    status: "Disponível",
+    posicao: "Escanteio",
+    imagem: "src/assets/502.jpg"
+  },
+  {
+    id: "503",
+    numero2: "",
+    nome: "GCS INTERMEDIAÇÃO",
+    inicio: "04/04/2024",
+    termino: "03/04/2025",
+    precoCamarote: "R$233.000,00",
+    precoCatering: "R$40.000,00",
+    precoTotal: "R$273.000,00",
+    parcelaCamarote: "ÚNICA",
+    dataVencimento: "Quitado",
+    ingressos: "15",
+    catering: "Básico",
+    status: "Sem contrato",
+    posicao: "Escanteio",
+    imagem: "src/assets/503.jpg"
+  },
+  {
+    id: "504",
+    numero2: "",
+    nome: "DHB Consultoria",
+    inicio: "01/01/2025",
+    termino: "31/12/2025",
+    precoCamarote: "R$504.000,00",
+    precoCatering: "R$168.000,00",
+    precoTotal: "R$672.000,00",
+    parcelaCamarote: "R$42.000,00",
+    dataVencimento: "10",
+    ingressos: "21",
+    catering: "Básico",
+    status: "Assinado",
+    posicao: "Escanteio",
+    imagem: "src/assets/504.jpg"
+  },
+  {
+    id: "505",
+    numero2: "",
+    nome: "Lourival Panhozzi",
+    inicio: "-",
+    termino: "-",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "-",
+    catering: "-",
+    status: "Disponível",
+    posicao: "Grande área",
+    imagem: "src/assets/505.jpg"
+  },
+  {
+    id: "506",
+    numero2: "",
+    nome: "Disponível",
+    inicio: "-",
+    termino: "-",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "-",
+    catering: "-",
+    status: "Disponível",
+    posicao: "Grande área",
+    imagem: "src/assets/506.jpg"
+  },
+  {
+    id: "507",
+    numero2: "",
+    nome: "Arthur Oliveira",
+    inicio: "01/01/2025",
+    termino: "31/12/2025",
+    precoCamarote: "R$360.000,00",
+    precoCatering: "R$72.000,00",
+    precoTotal: "R$432.000,00",
+    parcelaCamarote: "R$30.000,00",
+    dataVencimento: "10",
+    ingressos: "12",
+    catering: "Básico",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/507.jpg"
+  },
+  {
+    id: "508",
+    numero2: "",
+    nome: "LS Import",
+    inicio: "27/03/2025",
+    termino: "31/12/2025",
+    precoCamarote: "R$405.000,00",
+    precoCatering: "R$80.000,00",
+    precoTotal: "R$485.000,00",
+    parcelaCamarote: "R$40.500,00",
+    dataVencimento: "10",
+    ingressos: "15",
+    catering: "Básico",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/508.jpg"
+  },
+  {
+    id: "509",
+    numero2: "",
+    nome: "BR Auto Parts",
+    inicio: "04/11/2024",
+    termino: "31/12/2025",
+    precoCamarote: "R$392.000,00",
+    precoCatering: "R$84.000,00",
+    precoTotal: "R$476.000,00",
+    parcelaCamarote: "R$28.000,00",
+    dataVencimento: "10",
+    ingressos: "12",
+    catering: "Intermediário",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/509.jpg"
+  },
+  {
+    id: "510",
+    numero2: "",
+    nome: "Flex Automotive",
     inicio: "01/03/2025",
     termino: "31/12/2025",
-    precoCamarote: 360000,
-    precoCatering: 80000,
-    precoTotal: 440000,
-    parcelaCamarote: 36000,
-    dataVencimento: 10,
-    ingressos: 15,
-    catering: "BASICO",
-    status: "ASSINADO"
+    precoCamarote: "R$360.000,00",
+    precoCatering: "R$80.000,00",
+    precoTotal: "R$440.000,00",
+    parcelaCamarote: "R$36.000,00",
+    dataVencimento: "10",
+    ingressos: "15",
+    catering: "Básico",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/510.jpg"
   },
   {
-    id: 511,
-    numero: "511",
-    nome: "DI MILANO",
+    id: "511",
+    numero2: "",
+    nome: "Di Milano",
     inicio: "01/01/2025",
     termino: "31/12/2025",
-    precoCamarote: 360000,
-    precoCatering: 84000,
-    precoTotal: 444.000,
-    parcelaCamarote: 30000,
-    dataVencimento: 10,
-    ingressos: 12,
-    catering: "INTERMEDIARIO",
-    status: "ASSINADO"
+    precoCamarote: "R$360.000,00",
+    precoCatering: "R$84.000,00",
+    precoTotal: "R$444.000,00",
+    parcelaCamarote: "R$30.000,00",
+    dataVencimento: "10",
+    ingressos: "12",
+    catering: "Intermediário",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/511.jpg"
   },
   {
-    id: 512,
-    numero: "512",
-    nome: "VICE PRESIDENCIA - OSMAR",
-    inicio: "N/A",
-    termino: "N/A",
-    precoCamarote: "N/A",
-    precoCatering: "N/A",
-    precoTotal: "N/A",
-    parcelaCamarote: "N/A",
-    dataVencimento: "N/A",
-    ingressos: 15,
-    catering: "N/A",
-    status: "USO-INTERNO"
+    id: "512",
+    numero2: "",
+    nome: "Disponível",
+    inicio: "-",
+    termino: "-",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "15",
+    catering: "-",
+    status: "Uso Interno",
+    posicao: "Grande área",
+    imagem: "src/assets/512.jpg"
   },
   {
-    id: 513,
-    numero: "513",
-    nome: "USO INTERNO",
+    id: "513",
+    numero2: "",
+    nome: "Disponível",
     inicio: "01/01/2025",
     termino: "31/12/2025",
-    precoCamarote: 432000,
-    precoCatering: 72000,
-    precoTotal: 504000,
-    parcelaCamarote: 36000,
-    dataVencimento: 10,
-    ingressos: 15,
-    catering: "BASICO",
-    status: "NEGADO"
+    precoCamarote: "R$432.000,00",
+    precoCatering: "R$72.000,00",
+    precoTotal: "R$504.000,00",
+    parcelaCamarote: "R$36.000,00",
+    dataVencimento: "10",
+    ingressos: "15",
+    catering: "Básico",
+    status: "NEGADO PELA COMPLIANCE",
+    posicao: "Grande área",
+    imagem: "src/assets/513.jpg"
   },
   {
-    id: 514,
-    numero: "514",
-    nome: "GUERINO E LIMA",
+    id: "514",
+    numero2: "",
+    nome: "Guerino e Lima",
     inicio: "01/01/2025",
     termino: "31/12/2025",
-    precoCamarote: 324000,
-    precoCatering: 84000,
-    precoTotal: 408000,
-    parcelaCamarote: 32400,
-    dataVencimento: 10,
-    ingressos: 12,
-    catering: "INTERMEDIARIO",
-    status: "ASSINADO"
+    precoCamarote: "R$324.000,00",
+    precoCatering: "R$84.000,00",
+    precoTotal: "R$408.000,00",
+    parcelaCamarote: "R$32.400,00",
+    dataVencimento: "10",
+    ingressos: "12",
+    catering: "Intermediário",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/514.jpg"
   },
   {
     id: "515",
-    numero: "515",
-    nome: "PORTE ENGENHARIA",
+    numero2: "",
+    nome: "Porte Engenharia",
     inicio: "28/06/2024",
     termino: "31/12/2025",
-    precoCamarote: 540000,
-    precoCatering: 170000,
-    precoTotal: 710000,
-    parcelaCamarote: 41750,
-    dataVencimento: 10,
-    ingressos: 15,
-    catering: "INTERMEDIARIO",
-    status: "ASSINADO"
+    precoCamarote: "R$540.000,00",
+    precoCatering: "R$170.000,00",
+    precoTotal: "R$710.000,00",
+    parcelaCamarote: "R$41.750,00",
+    dataVencimento: "10",
+    ingressos: "15",
+    catering: "Intermediário",
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/515.jpg"
   },
   {
-    id: 516,
-    numero: 516,
-    nome: "ELRING KLINGER",
+    id: "516",
+    numero2: "",
+    nome: "Elring Klinger",
     inicio: "01/01/2025",
     termino: "31/12/2025",
-    precoCamarote: 399000,
-    precoCatering: 120000,
-    precoTotal: 519000,
-    parcelaCamarote: "UNICA",
-    dataVencimento: 20,
-    ingressos: 15,
+    precoCamarote: "R$399.000,00",
+    precoCatering: "R$120.000,00",
+    precoTotal: "R$519.000,00",
+    parcelaCamarote: "ÚNICA",
+    dataVencimento: "20",
+    ingressos: "15",
     catering: "VIP",
-    status: "ASSINADO"
+    status: "Assinado",
+    posicao: "Grande área",
+    imagem: "src/assets/516.jpg"
   },
   {
-    id: 517,
-    numero: "517",
-    nome: "VOCÊ SEGURADORA",
+    id: "517",
+    numero2: "",
+    nome: "Você Seguradora",
     inicio: "05/10/2024",
     termino: "31/12/2025",
-    precoCamarote: 615000,
-    precoCatering: 150000,
-    precoTotal: 765000,
-    parcelaCamarote: 51250,
-    dataVencimento: 10,
-    ingressos: 15,
+    precoCamarote: "R$615.000,00",
+    precoCatering: "R$150.000,00",
+    precoTotal: "R$765.000,00",
+    parcelaCamarote: "R$51.250,00",
+    dataVencimento: "10",
+    ingressos: "15",
     catering: "VIP",
-    status: "ASSINADO"
+    status: "Assinado",
+    posicao: "Meio campo",
+    imagem: "src/assets/517.jpg"
   },
   {
-    id: 518,
-    numero: "518",
-    nome: "TORTORO, MADUREIRA E RAGAZZI",
+    id: "518",
+    numero2: "",
+    nome: "Tortoro, Madureira e Ragazzi",
     inicio: "01/09/2024",
     termino: "31/08/2025",
-    precoCamarote: 371000,
-    precoCatering: 114000,
-    precoTotal: 485000,
-    parcelaCamarote: 31000,
-    dataVencimento: 10,
-    ingressos: 15,
+    precoCamarote: "R$371.000,00",
+    precoCatering: "R$114.000,00",
+    precoTotal: "R$485.000,00",
+    parcelaCamarote: "R$31.000,00",
+    dataVencimento: "10",
+    ingressos: "15",
     catering: "VIP",
-    status: "ASSINADO"
+    status: "Assinado",
+    posicao: "Meio campo",
+    imagem: "src/assets/518.jpg"
   },
   {
-    id: 519,
-    numero: "519",
-    nome: "KALUNGA",
+    id: "519",
+    numero2: "",
+    nome: "Kalunga",
     inicio: "01/04/2015",
     termino: "01/04/2025",
-    precoCamarote: 4200000,
-    precoCatering: 1200000,
-    precoTotal: 5400000,
-    parcelaCamarote: 35000,
-    dataVencimento: "N/A",
-    ingressos: 15,
+    precoCamarote: "R$4.200.000,00",
+    precoCatering: "R$1.200.000,00",
+    precoTotal: "R$5.400.000,00",
+    parcelaCamarote: "R$35.000,00",
+    dataVencimento: "Indefinido",
+    ingressos: "15",
     catering: "VIP",
-    status: "RENOVACAO",
-    posicao: "Escanteio"
+    status: "Renovação",
+    posicao: "Meio campo",
+    imagem: "src/assets/519.jpg"
+  },
+  {
+    id: "520",
+    numero2: "",
+    nome: "Crossfox",
+    inicio: "01/01/2025",
+    termino: "31/12/2025",
+    precoCamarote: "R$492.000,00",
+    precoCatering: "R$84.000,00",
+    precoTotal: "R$576.000,00",
+    parcelaCamarote: "R$41.000,00",
+    dataVencimento: "10",
+    ingressos: "15",
+    catering: "Intermediário",
+    status: "Assinado",
+    posicao: "Meio campo",
+    imagem: "src/assets/520.jpg"
+  },
+  {
+    id: "521",
+    numero2: "",
+    nome: "Custom",
+    inicio: "17/10/2024",
+    termino: "31/12/2025",
+    precoCamarote: "R$455.000,00",
+    precoCatering: "R$117.000,00",
+    precoTotal: "R$572.000,00",
+    parcelaCamarote: "R$35.000,00",
+    dataVencimento: "10",
+    ingressos: "12",
+    catering: "VIP",
+    status: "Assinado",
+    posicao: "Meio campo",
+    imagem: "src/assets/521.jpg"
+  },
+  {
+    id: "522",
+    numero2: "",
+    nome: "Totvs",
+    inicio: "04/04/2024",
+    termino: "31/12/2026",
+    precoCamarote: "R$600.000,00",
+    precoCatering: "R$0,00",
+    precoTotal: "R$600.000,00",
+    parcelaCamarote: "Permuta",
+    dataVencimento: "Sem contrato",
+    ingressos: "12",
+    catering: "VIP",
+    status: "Assinado",
+    posicao: "Meio campo",
+    imagem: "src/assets/522.jpg"
+  },
+  {
+    id: "523",
+    numero2: "524",
+    nome: "FPF",
+    inicio: "01/01/2020",
+    termino: "31/12/2026",
+    precoCamarote: "?",
+    precoCatering: "?",
+    precoTotal: "?",
+    parcelaCamarote: "?",
+    dataVencimento: "Sem contrato",
+    ingressos: "24",
+    catering: "VIP",
+    status: "Sem contrato",
+    posicao: "Meio campo",
+    imagem: "src/assets/523.524.jpg"
+  },
+  {
+    id: "525",
+    numero2: "526",
+    nome: "Heating Cooling",
+    inicio: "05/10/2024",
+    termino: "31/12/2025",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "15",
+    catering: "VIP",
+    status: "Assinando",
+    posicao: "Meio campo",
+    imagem: "src/assets/525.526.jpg"
+  },
+  {
+    id: "527",
+    numero2: "",
+    nome: "Yun Ki Lee + Fernando Perino",
+    inicio: "01/04/2024",
+    termino: "31/12/2025",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "15",
+    catering: "VIP",
+    status: "Assinado",
+    posicao: "Meio campo",
+    imagem: "src/assets/527.jpg"
   }
-];
+]  
 
+//Renderiza um container para cada camarote, baseado nos dados do array
 const itemcontainer = document.getElementById("itens");
-
 function renderSuits(list) {
   list.forEach(camarote => {
     const div = document.createElement("div");
@@ -174,7 +433,7 @@ function renderSuits(list) {
                             <th>Parcela</th>
                         </tr>
                         <tr>
-                            <td>${camarote.numero}</td>
+                            <td>${camarote.id}</td>
                             <td>${camarote.inicio}</td>
                             <td>${camarote.termino}</td>
                             <td>${camarote.precoCamarote}</td>
@@ -193,10 +452,10 @@ function renderSuits(list) {
                         </tr>
                         <tr>
                             <td>${camarote.dataVencimento}</td>
-                            <td>${camarote.ingressos} Ingressos</td>
+                            <td>${camarote.ingressos}</td>
                             <td>${camarote.catering}</td>
                             <td>${camarote.status}</td>
-                            <td>{camarote.posicao}</td>
+                            <td>${camarote.posicao}</td>
 
                         </tr>
                     </table>
@@ -241,6 +500,7 @@ function filtrar(propriedade, infInput) {
 
 }
 
+//Filtra a cada input de texto
 function filtrarCaracteres(input) {
 
   document.getElementById('suitsize').value = 0;
@@ -270,7 +530,7 @@ function filtrarCaracteres(input) {
     if (input == 'num') {
       document.getElementById('suitname').value = "";
       if (Number(numeroCam) != 0) {
-        if (String(camarote.numero).startsWith(numeroCam)) {
+        if (String(camarote.numero).startsWith(numeroCam) || String(camarote.numero2).startsWith(numeroCam)) {
           document.getElementById(camarote.id).style.display = 'flex';
         }
         else {
@@ -282,6 +542,17 @@ function filtrarCaracteres(input) {
   contaHidden();
 }
 
+//Prepara para ativar a função caso os campos recebam input
+let suitname = document.getElementById('suitname')
+suitname.addEventListener('input', function () {
+  filtrarCaracteres('nome')
+});
+let suitnumber = document.getElementById('suitnumber')
+suitnumber.addEventListener('input', function () {
+  filtrarCaracteres('num')
+});
+
+// Conta os itens com display ="none"
 function contaHidden() {
   let total = 0
   for (i = 0; i < contratos.length; i++) {
@@ -295,6 +566,7 @@ function contaHidden() {
   else { document.getElementById("mensagem").style.display = "none"; }
 }
 
+//Restaura o form
 let apagarFiltro = document.getElementById('btnReset');
 apagarFiltro.addEventListener('click', function (event) {
 
@@ -312,6 +584,7 @@ apagarFiltro.addEventListener('click', function (event) {
 
 })
 
+//Envia os dados captados no input para a função filtrar
 let filtroClick = document.getElementById('btnSend');
 filtroClick.addEventListener('click', function (event) {
 
@@ -385,18 +658,7 @@ filtroClick.addEventListener('click', function (event) {
   contaHidden();
 });
 
-
-let suitname = document.getElementById('suitname')
-suitname.addEventListener('input', function () {
-  filtrarCaracteres('nome')
-});
-
-let suitnumber = document.getElementById('suitnumber')
-suitnumber.addEventListener('input', function () {
-  filtrarCaracteres('num')
-});
-
-
+//Inverte a ordem dos displays (Para funcionar o array deve ser escrito na ordem "vencimento mais próximo para mais longe")
 const inverte = { valor: true }
 let btnOrdem = document.getElementById('btnOrdem')
 btnOrdem.addEventListener('click', function (event) {
