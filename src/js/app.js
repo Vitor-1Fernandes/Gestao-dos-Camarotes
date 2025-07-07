@@ -419,7 +419,7 @@ function renderSuits(list) {
     div.className = "item";
     div.id = `${camarote.id}`;
     div.innerHTML = `
-      <img src='${camarote.src}'> </img>
+      <img src='${camarote.imagem}'> </img>
        <div class="boxh3">
                     <table class="tabela">
                         <h3>${camarote.nome}</h3>
