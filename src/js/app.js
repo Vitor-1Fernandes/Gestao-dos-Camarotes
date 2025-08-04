@@ -2,23 +2,6 @@
 //Array onde cada objeto representa um camarote
 const contratos = [
   {
-    id: "502",
-    numero2: "",
-    nome: "Disponível",
-    inicio: "-",
-    termino: "-",
-    precoCamarote: "-",
-    precoCatering: "-",
-    precoTotal: "-",
-    parcelaCamarote: "-",
-    dataVencimento: "-",
-    ingressos: "-",
-    catering: "-",
-    status: "Disponível",
-    posicao: "Escanteio",
-    imagem: "src/assets/502.jpg"
-  },
-  {
     id: "503",
     numero2: "",
     nome: "GCS INTERMEDIAÇÃO",
@@ -34,6 +17,23 @@ const contratos = [
     status: "Sem contrato",
     posicao: "Escanteio",
     imagem: "src/assets/503.jpg"
+  },
+  {
+    id: "502",
+    numero2: "",
+    nome: "Disponível",
+    inicio: "-",
+    termino: "-",
+    precoCamarote: "-",
+    precoCatering: "-",
+    precoTotal: "-",
+    parcelaCamarote: "-",
+    dataVencimento: "-",
+    ingressos: "-",
+    catering: "-",
+    status: "Disponível",
+    posicao: "Escanteio",
+    imagem: "src/assets/502.jpg"
   },
   {
     id: "504",
@@ -523,7 +523,7 @@ const contratos = [
     parcelaCamarote: "PATROCÍNIO",
     dataVencimento: "Patrocínio",
     ingressos: "15",
-    catering: "PATROCINADOR",
+    catering: "Patrocinador",
     status: "Assinado",
     posicao: "Grande área",
     imagem: "src/assets/535.jpg"
@@ -540,7 +540,7 @@ const contratos = [
     parcelaCamarote: "PATROCÍNIO",
     dataVencimento: "Patrocínio",
     ingressos: "15",
-    catering: "PATROCINADOR",
+    catering: "Patrocinador",
     status: "Assinado",
     posicao: "Grande área",
     imagem: "src/assets/536.jpg"
@@ -915,7 +915,7 @@ const contratos = [
     dataVencimento: "Indefinido",
     ingressos: "12",
     catering: "-",
-    status: "Assinando",
+    status: "Assinado",
     posicao: "Grande área",
     imagem: "src/assets/614.jpg"
   },
@@ -1397,6 +1397,18 @@ const contratos = [
   }
 ];
 
+function ordenarPorTermino(contratos) {
+  return [...contratos].sort((a, b) => {
+    const parseDate = (str) => {
+      if (!str || str === "-") return Infinity;
+      const [day, month, year] = str.split('/').map(Number);
+      return new Date(year, month - 1, day).getTime();
+    };
+    return parseDate(a.termino) - parseDate(b.termino);
+  });
+}
+const contratosOrdenados = ordenarPorTermino(contratos);
+
 //Renderiza um container para cada camarote, baseado nos dados do array
 const itemcontainer = document.getElementById("itens");
 function renderSuits(list) {
@@ -1452,7 +1464,7 @@ function renderSuits(list) {
     itemcontainer.appendChild(div);
   });
 }
-renderSuits(contratos);
+renderSuits(contratosOrdenados);
 
 // Mostra todos os itens na tela e apaga as mensagens de erro
 function mostraTodos() {
@@ -1518,7 +1530,7 @@ function filtrarCaracteres(input) {
     if (input == 'num') {
       document.getElementById('suitname').value = "";
       if (Number(numeroCam) != 0) {
-        if (String(camarote.numero).startsWith(numeroCam) || String(camarote.numero2).startsWith(numeroCam)) {
+        if (String(camarote.id).startsWith(numeroCam) || String(camarote.numero2).startsWith(numeroCam)) {
           document.getElementById(camarote.id).style.display = 'flex';
         }
         else {
@@ -1626,13 +1638,19 @@ filtroClick.addEventListener('click', function (event) {
     if (suitcatering == 5) {
       filtrar('catering', 'VIP')
     }
+    if (suitcatering == 6) {
+      filtrar('catering', 'Patrocinador')
+    }
+    if (suitcatering == 7) {
+      filtrar('catering', 'Sem Catering')
+    }
   }
   if (suitstate != 0) {
     if (suitstate == 2) {
       filtrar('status', 'Assinado')
     }
     if (suitstate == 3) {
-      filtrar('status', 'Negado')
+      filtrar('status', 'NEGADO PELA COMPLIANCE')
     }
     if (suitstate == 4) {
       filtrar('status', 'Renovação')
@@ -1640,10 +1658,28 @@ filtroClick.addEventListener('click', function (event) {
     if (suitstate == 5) {
       filtrar('status', 'Uso Interno')
     }
+    if (suitstate == 6) {
+      filtrar('status', 'Disponível')
+    }
+     if (suitstate == 7) {
+      filtrar('status', 'Assinando')
+    }
+    if (suitstate == 8) {
+      filtrar('status', 'Em formalização')
+    }
+    if (suitstate == 9) {
+      filtrar('status', 'Sem contrato')
+    }
   }
   if (suitposition != 0){
     if (suitposition == 2){
       filtrar('posicao', 'Escanteio')
+    }
+    if (suitposition == 3){
+      filtrar('posicao', 'Meio campo')
+    }
+     if (suitposition == 4){
+      filtrar('posicao', 'Grande área')
     }
   }
   contaHidden();
